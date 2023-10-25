@@ -1,0 +1,36 @@
+site_name: The Oval Table - Oil Price Prediction
+
+nav:
+  - Introduction: index.md
+  - About:
+      - 'Getting Started': 'about/getting-started.md'
+      - 'License': 'about/license.md'
+      - 'Release Notes': 'about/release-notes.md'
+      - 'Changelog': 'about/changelog.md'
+  - Data:
+      - 'About': 'data/about.md'
+      - 'Features': 'data/features.md'
+  - Web Interface:
+      - 'Purpose': 'web-interface/purpose.md'
+      - 'Endpoints': 'web-interface/endpoints.md'
+      - 'Features': 'web-interface/features.md'
+      - 'Web Interface Process': 'web-interface/process.md'
+      - 'User Guide': 'web-interface/user-guide.md'
+  - Design: design.md
+  - Models: models.md
+  - Challenges: challenges.md
+  - Conclusions: conclusions.md
+  - FAQ: faq.md
+  - Acknowledgements: acknowledgements.md
+  - References: references.md
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  features:
+    - navigation.expand
+    - navigation.sections
+
+markdown_extensions:
+  - toc:
+      toc_depth: 4
