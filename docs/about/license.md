@@ -31,10 +31,10 @@ Please be aware of the following limitations:
 
 - **No Liability**: The software is provided "as-is". The project or contributors are *not responsible* for any damages or issues that might arise from using the software.
 
-## Full License Text
-
-For the detailed legal terms of the AGPL-3.0 license, please see the [official AGPL-3.0 License text](https://www.gnu.org/licenses/agpl-3.0.html).
-
 ## Contributing
 
 We welcome contributions! If you'd like to contribute, please ensure that you follow the terms and conditions of the AGPL-3.0 license. **By contributing to this project, you agree to abide by the terms of this license**.
+
+## Full License Text
+
+For the detailed legal terms of the AGPL-3.0 license, please see the [official AGPL-3.0 License text](https://www.gnu.org/licenses/agpl-3.0.html){:target="_blank"}.

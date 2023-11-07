@@ -3,7 +3,7 @@
 Hello there! Welcome to our Oil Price Prediction Wb Interface user guide. We've made this tool to help you understand how different things in the world can affect oil prices. And guess what? You don't need to be a big scientist to use it! In this guide, we'll show you step by step how to become a pro at using our interface. Let's dive in!
 
 ## Step 1: Open the Website
-First, you need to open your web browser and go to our website: [oil-price-prediction.onrender.com](https://oil-price-prediction.onrender.com/). Just type the web address or click on the link, and voilà, you're there!
+First, you need to open your web browser and go to our website: [oil-price-prediction.onrender.com](https://oil-price-prediction.onrender.com/){:target="_blank"}. Just type the web address or click on the link, and voilà, you're there!
 
 ## Step 2: Choose What You Want to Look At
 Our interface has a lot of cool features that show you how different things ("features") like money, weather, or big world events can affect oil prices. Here's how you can choose what you want to look at:
@@ -22,7 +22,7 @@ Our interface has a lot of cool features that show you how different things ("fe
 We love charts because they help us see patterns and understand things better. Once you’ve picked your features, you can look at different charts that show you how these features and oil prices change over time. You can pick if you want to see a *line chart* or a *scatter plot*.
 
 ## Step 4: Ask Questions or Get Help
-If something is confusing or not working, don’t worry! You can always ask for assistance. Just click on the “Help” button, and you’ll see a list of frequently asked questions or just navigate to our [FAQ section](/faq).
+If something is confusing or not working, don’t worry! You can always ask for assistance. Just click on the “Help” button, and you’ll see a list of frequently asked questions or just navigate to our [FAQ section](/faq){:target="_blank"}.
 
 ## Step 5: Have Fun and Learn!
 The most important thing is to have fun and be curious. Try different features, look at the charts, and see if you can find patterns or make predictions on your own.
