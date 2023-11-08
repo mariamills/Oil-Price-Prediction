@@ -67,4 +67,4 @@ The development of the web interface for our oil price prediction and analysis t
 - **Tools & Resources**: GitHub for version control.
 
 ### Conclusion
-The development of the web interface is an ongoing collaborative effort that requires careful planning, development, and testing. By following this structured process, we were able to create an interface that is not only functional but also intuitive and user-friendly. The source code and additional documentation can be found on our [GitHub repository](https://github.com/mariamills/Oil-Price-Prediction-ML).
+The development of the web interface is an ongoing collaborative effort that requires careful planning, development, and testing. By following this structured process, we were able to create an interface that is not only functional but also intuitive and user-friendly. The source code and additional documentation can be found on our [GitHub repository](https://github.com/mariamills/Oil-Price-Prediction-ML){:target="_blank"}.

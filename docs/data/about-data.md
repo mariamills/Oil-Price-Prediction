@@ -73,7 +73,7 @@ So, in this case, using `1e-6` is perfectly fine because it's so small compared 
 
 ### Dataset Versions
 
-- **Original Dataset (Macroeconomic Data)**: This is the raw dataset, untouched and as initially provided (no log transformation ONLY real price conversion).
+- **Combined Raw (Macroeconomic Data + Oil Price from RWT)**: This is the raw dataset of Macroeconomic Data.csv and RWTCm.xls combined. It's the original dataset as provided to us, with no transformations applied or Real Oil Price calculated using the CPI.
     - Negatives: 1022
     - Zeros: 46
     - Blanks: 90
@@ -81,39 +81,75 @@ So, in this case, using `1e-6` is perfectly fine because it's so small compared 
     - Columns: 128 (including date)
     - Variables: 127 (not including date)
     - Dropped Variables: 0
+    - Dates: 1986-01 - 2023-06
     - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/Original/Macroeconomic%20Data.csv){:target="_blank"}
 
-- **Transformed Dataset**: After applying the above transformations, this dataset holds the real oil price and the log-transformed macroeconomic variables, ready for analysis and modeling.
-    - Negatives:
-    - Zeros:
-    - Blanks:
-    - Rows:
-    - Columns:
-    - Variables: 126
+- **Combined CPI Adjusted**: This is still the raw dataset of Macroeconomic Data.csv and RWTCm.xls combined, but with the CPI adjustment applied to the oil price.
+    - Negatives: 1022
+    - Zeros: 46
+    - Blanks: 90
+    - Rows: 450
+    - Columns: 128 (including date)
+    - Variables: 127 (not including date)
     - Dropped Variables: 0
+    - Dates: 1986-01 - 2023-06
     - Source: [See here](){:target="_blank"}
 
 
-- **Pruned Dataset**: Here, we've removed any blank entries that might skew our analyses from the transformed dataset.
-    - Negatives:
-    - Zeros:
-    - Blanks: 0
-    - Rows: 372
-    - Columns: 129
-    - Variables:
-    - Dropped Variables:
+- **Combined Log Transformed**: The dataset with a log transformation applied to all applicable variables, *including real oil prices*.
+    - Negatives: 2281
+    - Zeros: 36
+    - Blanks: 199
+    - Rows: 450
+    - Columns: 128 (including date)
+    - Variables: 127 (not including date)
+    - Dropped Variables: 0
+    - Dates: 1986-01 - 2023-06
     - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/macro_features_and_real_oil_prices_log_tranferred_dropped_Nan_skipped_neg_and_zeros_for_log.csv){:target="_blank"}
 
-- **Refined Dataset**: This version has undergone rigorous cleansing, with negative values, zeros, and blanks meticulously filtered out to ensure data purity, with the original transformations intact.
-    - Negatives: 0
-    - Zeros: 0
-    - Blanks: 0
-    - Rows: 142
-    - Columns: 123
-    - Variables: 123
-    - Dates: 1992-02-01 to 2019-02-01
-    - Dropped Variables:
+- **Combined Log Transformed Excl Roil**: Similar to the previous dataset (Combined Log Transformed) but excludes the log transformation on real oil prices.
+    - Negatives: 2281
+    - Zeros: 36
+    - Blanks: 199
+    - Rows: 450
+    - Columns: 128 (including date)
+    - Variables: 127 (not including date)
+    - Dropped Variables: 0
+    - Dates: 1986-01 - 2023-06
     - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv){:target="_blank"}
+
+- **Combined Log Clean**: This dataset is derived from `Combined_Log_Transformed.csv` with all blanks removed.
+  - Negatives: 1454
+  - Zeros: 34
+  - Blanks: 0
+  - Rows: 303 (147 rows removed)
+  - Columns: 128 (including date)
+  - Variables: 127 (not including date)
+  - Dropped Variables: 0
+  - Dates: 1992-02 - 2023-03
+  - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv){:target="_blank"}
+
+- **Combined Log Excl Roil Clean**: This dataset originates from `Combined_Log_Transformed_Excl_Roil.csv` with all blanks removed.
+  - Negatives: 1454
+  - Zeros: 34
+  - Blanks: 0
+  - Rows: 303 (147 rows removed)
+  - Columns: 128 (including date)
+  - Variables: 127 (not including date)
+  - Dropped Variables: 0
+  - Dates: 1992-02 - 2023-03
+  - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv){:target="_blank"}
+
+- **Combined Log Excl Roil Clean NoNeg**: An extension of `Combined_Log_Excl_Roil_Clean.csv`, it excludes rows with negative values and drops columns with predominantly negative data.
+  - Negatives: 0
+  - Zeros: 6
+  - Blanks: 0
+  - Rows: 97 (206 rows removed)
+  - Columns: 124 (including date)
+  - Variables: 123 (not including date)
+  - Dropped Variables: 4
+  - Dates: 1992-03 - 2019-02
+  - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv){:target="_blank"}
 
 ### Data Usage
 

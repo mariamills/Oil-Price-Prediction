@@ -17,8 +17,15 @@ nav:
       - 'Features': 'web-interface/features.md'
       - 'Web Interface Process': 'web-interface/process.md'
       - 'User Guide': 'web-interface/user-guide.md'
+  - Models:
+        - 'Models Overview': 'models/overview.md'
+        - 'XGBoost': 'models/xgboost.md'
+        - 'Random Forest': 'models/random-forest.md'
+        - 'Polynomial Regression': 'models/polynomial-regression.md'
+        - 'Naive Model': 'models/naive.md'
+        - 'ARIMA': 'models/arima.md'
+        - 'Prophet': 'models/prophet.md'
   - Design: design.md
-  - Models: models.md
   - Challenges: challenges.md
   - Conclusions: conclusions.md
   - FAQ: faq.md
@@ -42,7 +49,6 @@ theme:
 
   custom_dir: docs/overrides
   features:
-    - navigation.expand
     - navigation.top
     - navigation.footer
 

@@ -27,4 +27,4 @@ The web interface of our oil price prediction and analysis tool is designed to b
     - **Functionality**: Regardless of whether a user is accessing the website from a desktop computer, tablet, or smartphone, the interface adjusts to provide an optimal viewing experience.
 
 ## Don't see a feature you want?
-If you have any suggestions for new features or improvements, please let us know! We are always looking for ways to improve our website and make it more useful for our users. Just create a new issue on our [GitHub repository](https://github.com/mariamills/Oil-Price-Prediction-ML), and we will get back to you as soon as possible.
+If you have any suggestions for new features or improvements, please let us know! We are always looking for ways to improve our website and make it more useful for our users. Just create a new issue on our [GitHub repository](https://github.com/mariamills/Oil-Price-Prediction-ML){:target="_blank"}, and we will get back to you as soon as possible.

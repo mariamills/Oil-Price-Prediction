@@ -2,7 +2,7 @@ In our quest to develop an effective machine learning solution for our project, 
 
 ### Cycle 1: Initial Modeling
 
-1. **XGBoost**
+1. **[XGBoost](xgboost.md){target=_blank}**
    XGBoost, or Extreme Gradient Boosting, was our choice due to its popularity and proven track record in winning Kaggle competitions. It's known for its speed and performance, as well as its ability to handle missing data. We anticipated that XGBoost would provide us with a robust and accurate model, even with the less-than-perfect quality of our initial dataset.
 
 2. **Random Forest (RF)**
