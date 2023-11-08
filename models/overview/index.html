@@ -1020,15 +1020,15 @@
    XGBoost, or Extreme Gradient Boosting, was our choice due to its popularity and proven track record in winning Kaggle competitions. It's known for its speed and performance, as well as its ability to handle missing data. We anticipated that XGBoost would provide us with a robust and accurate model, even with the less-than-perfect quality of our initial dataset.</p>
 </li>
 <li>
-<p><strong>Random Forest (RF)</strong>
+<p><strong><a href="../random-forest/" target="_blank">Random Forest (RF)</a></strong>
    Random Forest was another model we opted for, primarily for its simplicity and effectiveness. It works well for both classification and regression tasks and has the added benefit of feature importance evaluation, which we considered essential for understanding our dataset better. Its ensemble nature, through bootstrapping and averaging predictions, helps in reducing overfitting, making it a reliable choice.</p>
 </li>
 <li>
-<p><strong>Polynomial Regression</strong>
+<p><strong><a href="../polynomial-regression/" target="_blank">Polynomial Regression</a></strong>
    We chose Polynomial Regression to provide a contrast to the ensemble methods. It's a type of linear regression that models the relationship between the independent variable x and the dependent variable y as an nth degree polynomial. We were curious to see how a more straightforward, parametric model would perform on our dataset, particularly in capturing any non-linear patterns.</p>
 </li>
 <li>
-<p><strong>Naive Forecast (Baseline)</strong>
+<p><strong><a href="../naive/" target="_blank">Naive Forecast (Baseline)</a></strong>
    To establish a baseline performance, we implemented a Naive Forecasting model. This simple model set the stage for us to better evaluate the performance improvements brought about by the more complex models. It served as a reality check, ensuring that our advanced models were indeed adding value and not just fitting to noise.</p>
 </li>
 </ol>
@@ -1036,15 +1036,15 @@
 <p>As we progressed to the second cycle of our project, our focus shifted to time series models, acknowledging the temporal nature of our dataset.</p>
 <ol>
 <li>
-<p><strong>ARIMA (AutoRegressive Integrated Moving Average)</strong>
+<p><strong><a href="../arima/" target="_blank">ARIMA (AutoRegressive Integrated Moving Average)</a></strong>
    ARIMA is a popular and widely used statistical method for time series forecasting. It captures the underlying patterns and structures in the time series data, making it a suitable choice for our project. We were interested in evaluating how well ARIMA could handle the trends and seasonality in our dataset.</p>
 </li>
 <li>
-<p><strong>Prophet</strong>
+<p><strong><a href="../prophet/" target="_blank">Prophet</a></strong>
    Developed by Facebook, Prophet is specifically designed for forecasting time series data that exhibit strong seasonal patterns. We were drawn to its robustness and ability to handle missing data, as well as its ease of use. Prophet’s ability to provide interpretable parameters was an added bonus, aiding us in understanding the model’s predictions.</p>
 </li>
 <li>
-<p><strong>XGBoost (Time Series)</strong>
+<p><strong><a href="../xgboost/" target="_blank">XGBoost (Time Series)</a></strong>
    Given the success of XGBoost in our initial cycle, we decided to adapt it for time series forecasting. We modified the data preparation and feature engineering steps to suit the temporal nature of our data, eager to see if XGBoost’s power could be harnessed in a time series context.</p>
 </li>
 </ol>
