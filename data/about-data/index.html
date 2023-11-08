@@ -254,9 +254,7 @@
         
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -622,9 +620,7 @@
         
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -757,16 +753,180 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../design/" class="md-nav__link">
+      <a href="../../models/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Design
+    Models Overview
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/xgboost/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XGBoost
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/random-forest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Forest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/polynomial-regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polynomial Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/naive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Naive Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/arima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ARIMA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/prophet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prophet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -777,11 +937,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../models/" class="md-nav__link">
+      <a href="../../design/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Models
+    Design
   </span>
   
 
@@ -1107,7 +1267,7 @@ log(x), helps in stabilizing variance and making the data more amenable to model
 <h3 id="dataset-versions">Dataset Versions</h3>
 <ul>
 <li>
-<p><strong>Original Dataset (Macroeconomic Data)</strong>: This is the raw dataset, untouched and as initially provided (no log transformation ONLY real price conversion).</p>
+<p><strong>Combined Raw (Macroeconomic Data + Oil Price from RWT)</strong>: This is the raw dataset of Macroeconomic Data.csv and RWTCm.xls combined. It's the original dataset as provided to us, with no transformations applied or Real Oil Price calculated using the CPI.</p>
 <ul>
 <li>Negatives: 1022</li>
 <li>Zeros: 46</li>
@@ -1116,49 +1276,92 @@ log(x), helps in stabilizing variance and making the data more amenable to model
 <li>Columns: 128 (including date)</li>
 <li>Variables: 127 (not including date)</li>
 <li>Dropped Variables: 0</li>
+<li>Dates: 1986-01 - 2023-06</li>
 <li>Source: <a href="https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/Original/Macroeconomic%20Data.csv" target="_blank">See here</a></li>
 </ul>
 </li>
 <li>
-<p><strong>Transformed Dataset</strong>: After applying the above transformations, this dataset holds the real oil price and the log-transformed macroeconomic variables, ready for analysis and modeling.</p>
+<p><strong>Combined CPI Adjusted</strong>: This is still the raw dataset of Macroeconomic Data.csv and RWTCm.xls combined, but with the CPI adjustment applied to the oil price.</p>
 <ul>
-<li>Negatives:</li>
-<li>Zeros:</li>
-<li>Blanks:</li>
-<li>Rows:</li>
-<li>Columns:</li>
-<li>Variables: 126</li>
+<li>Negatives: 1022</li>
+<li>Zeros: 46</li>
+<li>Blanks: 90</li>
+<li>Rows: 450</li>
+<li>Columns: 128 (including date)</li>
+<li>Variables: 127 (not including date)</li>
 <li>Dropped Variables: 0</li>
+<li>Dates: 1986-01 - 2023-06</li>
 <li>Source: <a href="" target="_blank">See here</a></li>
 </ul>
 </li>
 <li>
-<p><strong>Pruned Dataset</strong>: Here, we've removed any blank entries that might skew our analyses from the transformed dataset.</p>
+<p><strong>Combined Log Transformed</strong>: The dataset with a log transformation applied to all applicable variables, <em>including real oil prices</em>.</p>
 <ul>
-<li>Negatives:</li>
-<li>Zeros:</li>
-<li>Blanks: 0</li>
-<li>Rows: 372</li>
-<li>Columns: 129</li>
-<li>Variables:</li>
-<li>Dropped Variables:</li>
+<li>Negatives: 2281</li>
+<li>Zeros: 36</li>
+<li>Blanks: 199</li>
+<li>Rows: 450</li>
+<li>Columns: 128 (including date)</li>
+<li>Variables: 127 (not including date)</li>
+<li>Dropped Variables: 0</li>
+<li>Dates: 1986-01 - 2023-06</li>
 <li>Source: <a href="https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/macro_features_and_real_oil_prices_log_tranferred_dropped_Nan_skipped_neg_and_zeros_for_log.csv" target="_blank">See here</a></li>
 </ul>
 </li>
 <li>
-<p><strong>Refined Dataset</strong>: This version has undergone rigorous cleansing, with negative values, zeros, and blanks meticulously filtered out to ensure data purity, with the original transformations intact.</p>
+<p><strong>Combined Log Transformed Excl Roil</strong>: Similar to the previous dataset (Combined Log Transformed) but excludes the log transformation on real oil prices.</p>
 <ul>
-<li>Negatives: 0</li>
-<li>Zeros: 0</li>
-<li>Blanks: 0</li>
-<li>Rows: 142</li>
-<li>Columns: 123</li>
-<li>Variables: 123</li>
-<li>Dates: 1992-02-01 to 2019-02-01</li>
-<li>Dropped Variables:</li>
+<li>Negatives: 2281</li>
+<li>Zeros: 36</li>
+<li>Blanks: 199</li>
+<li>Rows: 450</li>
+<li>Columns: 128 (including date)</li>
+<li>Variables: 127 (not including date)</li>
+<li>Dropped Variables: 0</li>
+<li>Dates: 1986-01 - 2023-06</li>
 <li>Source: <a href="https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv" target="_blank">See here</a></li>
 </ul>
 </li>
+<li>
+<p><strong>Combined Log Clean</strong>: This dataset is derived from <code>Combined_Log_Transformed.csv</code> with all blanks removed.</p>
+</li>
+<li>Negatives: 1454</li>
+<li>Zeros: 34</li>
+<li>Blanks: 0</li>
+<li>Rows: 303 (147 rows removed)</li>
+<li>Columns: 128 (including date)</li>
+<li>Variables: 127 (not including date)</li>
+<li>Dropped Variables: 0</li>
+<li>Dates: 1992-02 - 2023-03</li>
+<li>
+<p>Source: <a href="https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv" target="_blank">See here</a></p>
+</li>
+<li>
+<p><strong>Combined Log Excl Roil Clean</strong>: This dataset originates from <code>Combined_Log_Transformed_Excl_Roil.csv</code> with all blanks removed.</p>
+</li>
+<li>Negatives: 1454</li>
+<li>Zeros: 34</li>
+<li>Blanks: 0</li>
+<li>Rows: 303 (147 rows removed)</li>
+<li>Columns: 128 (including date)</li>
+<li>Variables: 127 (not including date)</li>
+<li>Dropped Variables: 0</li>
+<li>Dates: 1992-02 - 2023-03</li>
+<li>
+<p>Source: <a href="https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv" target="_blank">See here</a></p>
+</li>
+<li>
+<p><strong>Combined Log Excl Roil Clean NoNeg</strong>: An extension of <code>Combined_Log_Excl_Roil_Clean.csv</code>, it excludes rows with negative values and drops columns with predominantly negative data.</p>
+</li>
+<li>Negatives: 0</li>
+<li>Zeros: 6</li>
+<li>Blanks: 0</li>
+<li>Rows: 97 (206 rows removed)</li>
+<li>Columns: 124 (including date)</li>
+<li>Variables: 123 (not including date)</li>
+<li>Dropped Variables: 4</li>
+<li>Dates: 1992-03 - 2019-02</li>
+<li>Source: <a href="https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Data/cleaned_dataset.csv" target="_blank">See here</a></li>
 </ul>
 <h3 id="data-usage">Data Usage</h3>
 <p>It's essential to understand that while our datasets are extensive and informative, they are primarily tailored for educational purposes within the context of our current project. We advise users to approach the data with a discerning lens, acknowledging its scope and potential limitations.</p>
@@ -1246,7 +1449,7 @@ log(x), helps in stabilizing variance and making the data more amenable to model
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
