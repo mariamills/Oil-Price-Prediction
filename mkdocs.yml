@@ -11,6 +11,7 @@ nav:
   - Data:
       - 'About the Data': 'data/about-data.md'
       - 'Variables': 'data/variables.md'
+      - 'Model Performance': 'data/model-performance.md'
   - Web Interface:
       - 'Purpose': 'web-interface/purpose.md'
       - 'Endpoints': 'web-interface/endpoints.md'
@@ -19,6 +20,7 @@ nav:
       - 'User Guide': 'web-interface/user-guide.md'
   - Models:
         - 'Models Overview': 'models/overview.md'
+        - 'Cross Validation': 'models/cross-validation.md'
         - 'XGBoost': 'models/xgboost.md'
         - 'Random Forest': 'models/random-forest.md'
         - 'Polynomial Regression': 'models/polynomial-regression.md'

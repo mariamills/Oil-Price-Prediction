@@ -58,3 +58,9 @@ Key considerations when using XGBoost for time series:
 - **Date-time features**: Extract information from the timestamp, like the day of the week or the hour of the day, which can affect the time series patterns.
 
 To learn more about using XGBoost for time series forecasting, check out this [comprehensive guide](https://xgboost.readthedocs.io/en/latest/tutorials/forecast.html){target=_blank}.
+
+
+#### Code
+
+[//]: # (TODO: Add link to notebook)
+To see how we implemented XGBoost in our project including cross-validation, check out the [XGBoost(Regression) notebook]() or the [XGBoost(Time Series) notebook]().

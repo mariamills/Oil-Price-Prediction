@@ -36,6 +36,11 @@ where:
 
 In ARIMA, feature importance isn't discussed in the same way as it is for algorithms like decision trees. Instead, the focus is on the significance of the parameters (`αₚ`, `θₑ`) and the lagged values of the time series.
 
+#### Code
+
+[//]: # (TODO: Add link to notebook)
+To see how we implemented ARIMA in our project including cross-validation, check out the [ARIMA notebook]().
+
 #### Additional Notes
 
 - ARIMA models are fitted to time series data either to better understand the data or to predict future points in the series (forecasting).

@@ -29,8 +29,8 @@ For a detailed explanation of the Random Forest algorithm and its parameters, yo
 
 - `n_estimators`: The number of trees in the forest.
 - `max_depth`: The maximum depth of the trees.
-- `min_samples_split`: The minimum number of samples required to split an internal node.
 - `min_samples_leaf`: The minimum number of samples required to be at a leaf node.
+- `max_features`: The number of features to consider when looking for the best split.
 
 For a detailed explanation of the Random Forest algorithm and its parameters, you can visit the [Random Forest section in scikit-learn's documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html){target=_blank}.
 
@@ -39,3 +39,8 @@ For a detailed explanation of the Random Forest algorithm and its parameters, yo
 One of the most powerful aspects of Random Forest is its intrinsic ability to rank the importance of features based on how much they improve the purity of the node. This means that more important features will be selected more often when splitting nodes. You can access feature importance in scikit-learn with the `feature_importances_` attribute after fitting a Random Forest model.
 
 Random Forest can capture the importance of features with respect to the task being solved, which is a handy attribute for feature selection and understanding the model.
+
+#### Code
+
+[//]: # (TODO: Add link to notebook)
+To see how we implemented Random Forest in our project including cross-validation, check out the [Random Forest notebook]().

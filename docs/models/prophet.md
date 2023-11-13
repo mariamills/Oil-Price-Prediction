@@ -22,6 +22,12 @@ where:
 
 #### Parameters
 
+Prophet focuses mainly on seasonal effects and trend changes, so it doesn't have many parameters.<br>
+And the parameters it does have are mostly for tuning the model's seasonality and trend components. <br>
+
+For simplicity, we did not use any of these parameters in our project.<br>
+However, here is quick overview of the parameters:
+
 Prophet does not have traditional model parameters like `p`, `d`, `q` in ARIMA. Instead, it has several adjustable components:
 
 - `growth`: Can be 'linear' or 'logistic' to specify a capacity to which the forecast can grow.
@@ -31,6 +37,11 @@ Prophet does not have traditional model parameters like `p`, `d`, `q` in ARIMA. 
 #### Feature Importance
 
 Prophet automatically detects and accounts for seasonality, thus there's no traditional feature importance. The model's interpretability comes from the decomposition of the forecast into trend, seasonality, and holiday components.
+
+#### Code
+
+[//]: # (TODO: Add link to notebook)
+To see how we implemented Prophet in our project including cross-validation, check out the [Prophet notebook]().
 
 #### Additional Notes
 

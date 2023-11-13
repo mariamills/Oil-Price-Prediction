@@ -23,3 +23,8 @@ There are no parameters to tune in a Naive Forecast model, which is part of what
 Feature importance does not apply to Naive Forecast because it does not use any features or variables other than the past value of the series itself.
 
 The Naive Forecast is often used as a **benchmark** for more complex forecasting models. If a sophisticated model can't beat the Naive Forecast, it might be too complex or not suitable for the data at hand.
+
+#### Code
+
+[//]: # (TODO: Add link to notebook)
+To see how we implemented Naive Forecast in our project __NOT__ including cross-validation, check out the [Naive Forecast notebook]().

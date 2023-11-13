@@ -17,9 +17,12 @@ Here, `y` represents the dependent variable we're trying to predict, `x₁` is t
 
 #### Parameters
 
-Some key parameters in Polynomial Regression include:
+For our project we only used one parameter, `degree`, which is the degree of the polynomial. This determines the curvature of the fit.
 
 - The degree of the polynomial (`n`), which determines the curvature of the fit.
+
+Another key parameter (which we did not use for simplicity) is:
+
 - The coefficients (`β₁` to `βₙ`), which are adjusted during the training process to fit the curve to the data.
 
 Unlike some other models, Polynomial Regression does not have an intrinsic feature importance metric. However, the size of the coefficients can give some indication of the importance of each term.
@@ -30,3 +33,7 @@ Polynomial Regression doesn't directly provide feature importance. However, the 
 
 For a detailed understanding of Polynomial Regression, you can refer to the [documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html){target=_blank}.
 
+#### Code
+
+[//]: # (TODO: Add link to notebook)
+To see how we implemented Polynomial Regression in our project including cross-validation, check out the [Polynomial Regression notebook]().
