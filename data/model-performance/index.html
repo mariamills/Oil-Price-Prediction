@@ -1,0 +1,1730 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../variables/">
+      
+      
+        <link rel="next" href="../../web-interface/purpose/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Model Performance - The Oval Table - Oil Price Prediction</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-performance-on-various-datasets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The Oval Table - Oil Price Prediction" class="md-header__button md-logo" aria-label="The Oval Table - Oil Price Prediction" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Oval Table - Oil Price Prediction
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Performance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The Oval Table - Oil Price Prediction" class="md-nav__button md-logo" aria-label="The Oval Table - Oil Price Prediction" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    The Oval Table - Oil Price Prediction
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/project-requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About the Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Model Performance
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Model Performance
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#naive-forecast-baseline" class="md-nav__link">
+    Naive Forecast (Baseline)
+  </a>
+  
+    <nav class="md-nav" aria-label="Naive Forecast (Baseline)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-forest" class="md-nav__link">
+    Random Forest
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Forest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_1" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xgboost" class="md-nav__link">
+    XGBoost
+  </a>
+  
+    <nav class="md-nav" aria-label="XGBoost">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_2" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polynomial-regression" class="md-nav__link">
+    Polynomial Regression
+  </a>
+  
+    <nav class="md-nav" aria-label="Polynomial Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_3" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arima" class="md-nav__link">
+    ARIMA
+  </a>
+  
+    <nav class="md-nav" aria-label="ARIMA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_4" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+    <nav class="md-nav" aria-label="'Best' Dataset:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-arima-may-not-be-suitable-for-this-data" class="md-nav__link">
+    Why  ARIMA may not be suitable for this data?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prophet" class="md-nav__link">
+    Prophet
+  </a>
+  
+    <nav class="md-nav" aria-label="Prophet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_5" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xgboost-time-series" class="md-nav__link">
+    XGBoost (Time Series)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Web Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web-interface/purpose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Purpose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web-interface/endpoints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Endpoints
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web-interface/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web-interface/process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Interface Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web-interface/user-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/cross-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/xgboost/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XGBoost
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/random-forest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Forest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/polynomial-regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polynomial Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/naive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Naive Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/arima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ARIMA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/prophet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prophet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conclusions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acknowledgements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#naive-forecast-baseline" class="md-nav__link">
+    Naive Forecast (Baseline)
+  </a>
+  
+    <nav class="md-nav" aria-label="Naive Forecast (Baseline)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-forest" class="md-nav__link">
+    Random Forest
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Forest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_1" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xgboost" class="md-nav__link">
+    XGBoost
+  </a>
+  
+    <nav class="md-nav" aria-label="XGBoost">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_2" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polynomial-regression" class="md-nav__link">
+    Polynomial Regression
+  </a>
+  
+    <nav class="md-nav" aria-label="Polynomial Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_3" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arima" class="md-nav__link">
+    ARIMA
+  </a>
+  
+    <nav class="md-nav" aria-label="ARIMA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_4" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+    <nav class="md-nav" aria-label="'Best' Dataset:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-arima-may-not-be-suitable-for-this-data" class="md-nav__link">
+    Why  ARIMA may not be suitable for this data?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prophet" class="md-nav__link">
+    Prophet
+  </a>
+  
+    <nav class="md-nav" aria-label="Prophet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-dataset_5" class="md-nav__link">
+    'Best' Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xgboost-time-series" class="md-nav__link">
+    XGBoost (Time Series)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="model-performance-on-various-datasets">Model Performance on Various Datasets</h1>
+<p>The results provided show the performance of several models on various datasets, with metrics such as <strong>Mean Absolute Error (MAE)</strong>, <strong>Mean Squared Error (MSE)</strong>, <strong>Root Mean Squared Error (RMSE)</strong>, <strong>Mean Absolute Percentage Error (MAPE)</strong>, and the <strong>coefficient of determination (R^2)</strong>. <br></p>
+<p>Here's a breakdown of what these results suggest for each model:</p>
+<h2 id="naive-forecast-baseline">Naive Forecast (Baseline)</h2>
+<p>The Naive Forecast model, which predicts future values based on the most recent data point, has been evaluated across various datasets.<br>
+Here's a breakdown of its performance:</p>
+<ul>
+<li>
+<p><strong>Combined_Raw.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>3.09</code>, <strong>MSE</strong>: <code>22.14</code>, <strong>RMSE</strong>: <code>4.71</code>, <strong>MAPE</strong>: <code>6.99%</code>, <strong>R^2</strong>: <code>0.975</code></li>
+<li>This dataset shows a relatively high accuracy with an R^2 of 0.975, indicating the model can explain 97.5% of the variance in the data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_CPI_Adjusted.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>1.46</code>, <strong>MSE</strong>: <code>4.42</code>, <strong>RMSE</strong>: <code>2.10</code>, <strong>MAPE</strong>: <code>6.89%</code>, <strong>R^2</strong>: <code>0.963</code></li>
+<li>The model performs well, with a high R^2 value, suggesting good predictive capability.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>0.068</code>, <strong>MSE</strong>: <code>0.009</code>, <strong>RMSE</strong>: <code>0.097</code>, <strong>MAPE</strong>: <code>2.36%</code>, <strong>R^2</strong>: <code>0.956</code></li>
+<li>Excellent performance with low error metrics and a high R^2, indicating strong predictive accuracy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>0.068</code>, <strong>MSE</strong>: <code>0.010</code>, <strong>RMSE</strong>: <code>0.101</code>, <strong>MAPE</strong>: <code>2.32%</code>, <strong>R^2</strong>: <code>0.951</code></li>
+<li>Similar to the log-transformed dataset, showing high accuracy and low error rates.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean_NoNeg.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>0.087</code>, <strong>MSE</strong>: <code>0.019</code>, <strong>RMSE</strong>: <code>0.137</code>, <strong>MAPE</strong>: <code>2.99%</code>, <strong>R^2</strong>: <code>0.889</code></li>
+<li>Slightly lower performance compared to other log-transformed datasets but still shows good predictive capability.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed_Excl_Roil.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>1.46</code>, <strong>MSE</strong>: <code>4.42</code>, <strong>RMSE</strong>: <code>2.10</code>, <strong>MAPE</strong>: <code>6.89%</code>, <strong>R^2</strong>: <code>0.963</code></li>
+<li>Performance is identical to the CPI-adjusted dataset, indicating consistent model behavior across these datasets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean.csv:</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>1.55</code>, <strong>MSE</strong>: <code>5.93</code>, <strong>RMSE</strong>: <code>2.44</code>, <strong>MAPE</strong>: <code>7.04%</code>, <strong>R^2</strong>: <code>0.949</code></li>
+<li>Shows good predictive accuracy, though slightly lower than the CPI-adjusted and log-transformed datasets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean_NoNeg.csv</strong></p>
+<ul>
+<li><strong>MAE</strong>: <code>1.79</code>, <strong>MSE</strong>: <code>8.64</code>, <strong>RMSE</strong>: <code>2.94</code>, <strong>MAPE</strong>: <code>8.98%</code>, <strong>R^2</strong>: <code>0.883</code></li>
+<li>This dataset shows the lowest performance among the evaluated datasets, but still maintains a decent level of predictive accuracy.</li>
+</ul>
+</li>
+</ul>
+<h3 id="best-dataset">'Best' Dataset:</h3>
+<p>For the Naive Forecast model, the dataset that yielded the 'best' results is the <code>Combined_Log_Transformed.csv</code>.</p>
+<p>The Naive Forecast model demonstrates strong performance across various datasets, particularly with log-transformed data, where it achieves high R^2 values and low error metrics.</p>
+<p>This suggests that the most recent data point is often a good predictor for the next, especially in datasets where logarithmic transformations have been applied, indicating a level of consistency or trend in the data.<br>
+However, it's important to note that while the Naive Forecast can be surprisingly effective, it's a simple approach that doesn't account for complex patterns or potential changes in trends.</p>
+<h2 id="random-forest">Random Forest</h2>
+<ul>
+<li>
+<p><strong>Datasets with NaNs</strong>: We've chosen not to use Random Forest on the following datasets: <code>Combined_Raw.csv</code>, <code>Combined_CPI_Adjusted.csv</code>, and <code>Combined_Log_Transformed.csv</code> due to containing <em>NaN values</em>. <br> 
+<strong>Random Forest cannot handle NaNs</strong>; they need to be imputed or the rows/columns with NaNs must be dropped before modeling.</p>
+</li>
+<li>
+<p><strong>Combined_Log_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.085</code>, <strong>MSE</strong>: <code>0.016</code>, <strong>RMSE</strong>: <code>0.126</code>, <strong>MAPE</strong>: <code>3.01%</code>, <strong>R^2</strong>: <code>0.92</code></li>
+<li>The Random Forest model shows strong performance on the cleaned log-transformed dataset. The high R^2 score indicates that the model explains a significant portion of the variance in the data.</li>
+</ul>
+</li>
+<li>
+<p>Combined_Log_Clean_NoNeg.csv:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.043</code>, <strong>MSE</strong>: <code>0.003</code>, <strong>RMSE</strong>: <code>0.058</code>, <strong>MAPE</strong>: <code>1.55%</code>, <strong>R^2</strong>: <code>0.98</code></li>
+<li>This dataset yields the best performance for Random Forest, with very low error metrics and a high R^2 score. Removing negative values seems to have a positive impact on the model's accuracy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>1.70</code>, <strong>MSE</strong>: <code>5.88</code>, <strong>RMSE</strong>: <code>2.43</code>, <strong>MAPE</strong>: <code>9.00%</code>, <strong>R^2</strong>: <code>0.94</code></li>
+<li>While the performance is strong, the errors are higher compared to the datasets where the real oil price is included and log-transformed. This suggests that including real oil data helps improve the model's predictions.</li>
+</ul>
+</li>
+<li>
+<p>Combined_Log_Excl_Roil_Clean_NoNeg.csv:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.80</code>, <strong>MSE</strong>: <code>0.95</code>, <strong>RMSE</strong>: <code>0.98</code>, <strong>MAPE</strong>: <code>4.25%</code>, <strong>R^2</strong>: <code>0.99</code></li>
+<li>This dataset shows excellent performance with the highest R^2 score among the datasets where real oil price is excluded from log transformation. The low error metrics indicate a highly accurate model.</li>
+</ul>
+</li>
+</ul>
+<h4 id="best-dataset_1">'Best' Dataset:</h4>
+<p>The Random Forest model performs exceptionally well on datasets that have undergone log transformation and cleaning, especially when negative values are removed.<br>
+The inclusion of real oil price data, when log-transformed, appears to significantly enhance the model's predictive capabilities.</p>
+<p>The MAPE values are consistently low across datasets where the model is applied, indicating that the predictions are, on average, very close to the actual values.<br>
+The high R^2 scores, particularly for the <code>Combined_Log_Clean_NoNeg.csv</code> and <code>Combined_Log_Excl_Roil_Clean_NoNeg.csv</code> datasets, demonstrate the model's effectiveness in capturing the variance in the data.</p>
+<p>These results underscore the importance of data preprocessing and feature selection in building effective predictive models. The Random Forest algorithm, in particular, benefits from cleaner data (free from NaNs and negative values) and appropriate transformations, leading to more accurate predictions.<br>
+It's crucial to ensure that these models are not <strong>overfitting</strong> the training data, which can be verified through cross-validation or by evaluating the model's performance on a separate test set.</p>
+<h2 id="xgboost">XGBoost</h2>
+<p>The results provided showcases the performance of the XGBoost regression model across various datasets, evaluated using metrics such as <strong>Mean Absolute Error (MAE)</strong>, <strong>Mean Squared Error (MSE)</strong>, <strong>Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE)</strong>, and the <strong>coefficient of determination (R^2)</strong>.<br>
+Here's an analysis of the results:</p>
+<ul>
+<li>
+<p><strong>Combined_Raw.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>2.72</code>, <strong>MSE</strong>: <code>14.92</code>, <strong>RMSE</strong>: <code>3.86</code>, <strong>MAPE</strong>: <code>6.41%</code>, <strong>R^2</strong>: <code>0.98</code></li>
+<li>This dataset shows excellent performance with a very high <strong>R^2</strong> score, indicating that the model explains a significant portion of the variance in the data. The errors are relatively low, suggesting good predictive accuracy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_CPI_Adjusted.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>1.57</code>, <strong>MSE</strong>: <code>4.73</code>, <strong>RMSE</strong>: <code>2.17</code>, <strong>MAPE</strong>: <code>7.58%</code>, <strong>R^2</strong>: <code>0.95</code></li>
+<li>The model performs well on this dataset too, with a high <strong>R^2</strong> score. The errors are slightly higher compared to the raw dataset, which might be due to the CPI adjustment affecting the data's characteristics. </li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.07</code>, <strong>MSE</strong>: <code>0.01</code>, <strong>RMSE</strong>: <code>0.10</code>, <strong>MAPE</strong>: <code>2.53%</code>, <strong>R^2</strong>: <code>0.94</code></li>
+<li>The logarithmic transformation seems to have significantly improved the model's performance, with very low error metrics and a high <strong>R^2</strong> score. This indicates that the log transformation helps in linearizing the relationships in the data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.08</code>, <strong>MSE</strong>: <code>0.01</code>, <strong>RMSE</strong>: <code>0.12</code>, <strong>MAPE</strong>: <code>2.88%</code>, <strong>R^2</strong>: <code>0.93</code></li>
+<li>Cleaning the data post-log transformation maintains strong model performance, although there's a slight increase in errors and a minor decrease in <strong>R^2</strong> compared to the non-cleaned log-transformed data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean_NoNeg.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.05</code>, <strong>MSE</strong>: <code>0.004</code>, <strong>RMSE</strong>: <code>0.07</code>, <strong>MAPE</strong>: <code>1.81%</code>, <strong>R^2</strong>: <code>0.97</code></li>
+<li>Removing negative values further enhances model performance, resulting in the lowest errors and a very high <strong>R^2</strong> score among all datasets. This suggests that negative values <em>might</em> have been outliers or noise in the data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed_Excl_Roil.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>1.48</code>, <strong>MSE</strong>: <code>4.12</code>, <strong>RMSE</strong>: <code>2.03</code>, <strong>MAPE</strong>: <code>7.10%</code>, <strong>R^2</strong>: <code>0.96</code></li>
+<li>Excluding the real oil price from the log transformation results in increased errors and a slightly lower <strong>R^2</strong> score compared to the full log-transformed dataset. This indicates that the real oil price contributes significantly to the model's predictive power.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>1.60</code>, <strong>MSE</strong>: <code>4.12</code>, <strong>RMSE</strong>: <code>2.03</code>, <strong>MAPE</strong>: <code>8.01%</code>, <strong>R^2</strong>: <code>0.96</code></li>
+<li>Cleaning the dataset while excluding real oil price from log transformation shows similar performance to the non-cleaned version, with a slight increase in <strong>MAPE</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean_NoNeg.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>1.14</code>, <strong>MSE</strong>: <code>2.04</code>, <strong>RMSE</strong>: <code>1.43</code>, <strong>MAPE</strong>: <code>6.18%</code>, <strong>R^2</strong>: <code>0.97</code></li>
+<li>This dataset, after excluding the real oil price from the log transformation and cleaning negative values, shows impressive performance. The <strong>R^2</strong> score of <code>0.97</code> indicates that the model explains a vast majority of the variance in the dataset. The errors (MAE, MSE, RMSE) are relatively low, and the <strong>MAPE</strong> of <code>6.18%</code> suggests that the predictions are, on average, within about <code>6.18%</code> of the actual values, which is quite accurate for forecasting tasks.</li>
+</ul>
+</li>
+</ul>
+<h4 id="best-dataset_2">'Best' Dataset:</h4>
+<p>The <code>Combined_Log_Clean_NoNeg.csv</code> dataset generally shows the best performance across most metrics, highlighting the effectiveness of log transformation and cleaning negative values in the data.</p>
+<p>The inclusion of the real oil price in the log transformation appears to be crucial for model performance, as seen in the datasets where it's excluded.</p>
+<h2 id="polynomial-regression">Polynomial Regression</h2>
+<ul>
+<li>
+<p><strong>Datasets with NaNs</strong>: We've chosen not to use Polynomial Regression on the following datasets: <code>Combined_Raw.csv</code>, <code>Combined_CPI_Adjusted.csv</code>, and <code>Combined_Log_Transformed.csv</code> due to containing <em>NaN values</em>. <br>
+  <strong>Polynomial Regression cannot handle NaNs</strong>; they need to be imputed or the rows/columns with NaNs must be dropped before modeling.</p>
+</li>
+<li>
+<p><strong>Combined_Log_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.10</code>, <strong>MSE</strong>: <code>0.017</code>, <strong>RMSE</strong>: <code>0.129</code>, <strong>MAPE</strong>: <code>3.44%</code>, <strong>R^2</strong>: <code>0.92</code></li>
+<li>This dataset, with log transformation and cleaning, shows strong performance in the polynomial regression model. The <strong>R^2</strong> score of <code>0.92</code> is quite high, indicating that the model explains a significant portion of the variance in the data. The error metrics are low, and a <strong>MAPE</strong> of <code>3.44%</code> suggests good accuracy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean_NoNeg.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.094</code>, <strong>MSE</strong>: <code>0.014</code>, <strong>RMSE</strong>: <code>0.119</code>, <strong>MAPE</strong>: <code>3.30%</code>, <strong>R^2</strong>: <code>0.92</code></li>
+<li>Similar to the previous dataset, this one also shows strong performance. The removal of negative values seems to have a slightly positive impact on the model's accuracy, as indicated by the marginally lower error metrics and MAPE.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>2.43</code>, <strong>MSE</strong>: <code>11.78</code>, <strong>RMSE</strong>: <code>3.43</code>, <strong>MAPE</strong>: <code>14.26%</code>, <strong>R^2</strong>: <code>0.89</code></li>
+<li>In this dataset, where the real oil price is included but not log-transformed, the model's performance drops compared to the previous two datasets. The errors are significantly higher, and the R^2 score, while still good, is lower. <em>This suggests that the log transformation of the real oil price is beneficial for the model's performance</em>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean_NoNeg.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>1.73</code>, <strong>MSE</strong>: <code>5.03</code>, <strong>RMSE</strong>: <code>2.24</code>, <strong>MAPE</strong>: <code>10.01%</code>, <strong>R^2</strong>: <code>0.93</code></li>
+<li>This dataset, which excludes the real oil price from log transformation and cleans negative values, shows improved performance compared to the previous dataset but is still not as strong as when the real oil price is log-transformed. The R^2 score is high, but the error metrics, especially MAPE, are higher than in the first two datasets.</li>
+</ul>
+</li>
+</ul>
+<h3 id="best-dataset_3">'Best' Dataset:</h3>
+<p>The <code>Combined_Log_Clean.csv</code> and <code>Combined_Log_Clean_NoNeg.csv</code> datasets yield the best results with the Polynomial Regression model, indicating that log transformation and cleaning of the data are crucial for model performance.</p>
+<p>Excluding the real oil price from log transformation (while still including it in the dataset) leads to a decrease in model performance, suggesting that the way this feature is processed has a significant impact.
+The relatively high R^2 scores across all datasets indicate that Polynomial Regression is a suitable model for this type of data, but the choice of data preprocessing steps (like log transformation and cleaning of negatives) plays a crucial role in achieving optimal performance.</p>
+<p>As with any model, it's important to validate these results on unseen data to ensure that the model generalizes well and is not overfitting.</p>
+<h2 id="arima">ARIMA</h2>
+<ul>
+<li>
+<p><strong>Combined_Raw.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>16.80</code>, <strong>MSE</strong>: <code>522.13</code>, <strong>RMSE</strong>: <code>22.85</code>, <strong>MAPE</strong>: <code>25.48%</code>, <strong>R^2</strong>: <code>-0.49</code></li>
+<li>The ARIMA model performs <strong>poorly</strong> on the raw dataset, as indicated by high error metrics and a negative R^2 score. This suggests that the model is not suitable for the raw data without preprocessing.</li>
+</ul>
+</li>
+<li>
+<p>Combined_CPI_Adjusted.csv:</p>
+<ul>
+<li><strong>MAE</strong>: <code>4.47</code>, <strong>MSE</strong>: <code>36.84</code>, <strong>RMSE</strong>: <code>6.07</code>, <strong>MAPE</strong>: <code>20.41%</code>, <strong>R^2</strong>: <code>-0.10</code></li>
+<li>Although the error metrics are lower compared to the raw dataset, the negative R^2 score still indicates poor model performance. This suggests that CPI adjustment alone is not sufficient for the ARIMA model to perform well.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.21</code>, <strong>MSE</strong>: <code>0.081</code>, <strong>RMSE</strong>: <code>0.285</code>, <strong>MAPE</strong>: <code>7.06%</code>, <strong>R^2</strong>: <code>-0.05</code></li>
+<li>The log transformation improves the model's performance significantly, as seen in the lower error metrics. However, the slightly negative R^2 score suggests that the model still does not fit the data well.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.28</code>, <strong>MSE</strong>: <code>0.106</code>, <strong>RMSE</strong>: <code>0.326</code>, <strong>MAPE</strong>: <code>8.76%</code>, <strong>R^2</strong>: <code>-0.58</code></li>
+<li>Despite cleaning the data, the ARIMA model's performance does not improve significantly. The negative R^2 score indicates a poor fit to the data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Clean_NoNeg.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>0.23</code>, <strong>MSE</strong>: <code>0.112</code>, <strong>RMSE</strong>: <code>0.334</code>, <strong>MAPE</strong>: <code>7.62%</code>, <strong>R^2</strong>: <code>-0.22</code></li>
+<li>Removing negative values does not lead to a substantial improvement in model performance. The negative R^2 score persists, indicating a poor fit.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed_Excl_Roil.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>4.47</code>, <strong>MSE</strong>: <code>36.84</code>, <strong>RMSE</strong>: <code>6.07</code>, <strong>MAPE</strong>: <code>20.41%</code>, <strong>R^2</strong>: <code>-0.10</code></li>
+<li>Similar to the Combined_CPI_Adjusted.csv dataset, the performance here is poor, with a negative R^2 score, suggesting that excluding real oil price from log transformation does not benefit the ARIMA model.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>6.27</code>, <strong>MSE</strong>: <code>58.57</code>, <strong>RMSE</strong>: <code>7.65</code>, <strong>MAPE</strong>: <code>24.66%</code>, <strong>R^2</strong>: <code>-0.68</code></li>
+<li>This dataset shows one of the worst performances, with high error metrics and a significantly negative R^2 score, indicating a very poor fit.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean_NoNeg.csv</strong>:</p>
+<ul>
+<li><strong>MAE</strong>: <code>6.19</code>, <strong>MSE</strong>: <code>69.51</code>, <strong>RMSE</strong>: <code>8.34</code>, <strong>MAPE</strong>: <code>29.55%</code>, <strong>R^2</strong>: <code>-0.17</code></li>
+<li>Despite cleaning and removing negative values, the performance remains poor, as indicated by high error metrics and a negative R^2 score.</li>
+</ul>
+</li>
+</ul>
+<h3 id="best-dataset_4">'Best' Dataset:</h3>
+<p>The ARIMA model generally performs <strong>poorly across all datasets, with negative R^2 scores in most cases</strong>, indicating that it is not a suitable model for this type of data.</p>
+<p>The log-transformed datasets show relatively better performance compared to others, but the improvement is not enough to make the ARIMA model competitive with other models like XGBoost or Polynomial Regression.</p>
+<p><em>The consistently negative R^2 scores across different datasets suggest that ARIMA struggles to capture the underlying patterns in this data, possibly due to its non-stationary nature or complex relationships that ARIMA cannot model effectively.</em><br>
+These results highlight the importance of choosing the right model for the data at hand and the limitations of ARIMA in handling complex datasets like these.</p>
+<h4 id="why-arima-may-not-be-suitable-for-this-data">Why  ARIMA may not be suitable for this data?</h4>
+<p>ARIMA (AutoRegressive Integrated Moving Average) models might not perform well on certain datasets due to a few key reasons:</p>
+<ol>
+<li>
+<p><strong>Non-Stationary Data</strong>: ARIMA models are designed for stationary time series, where the statistical properties like mean and variance are constant over time. If the data shows trends or seasonality, it needs to be transformed into a stationary form before using ARIMA, <em>which might not always be effective</em>.</p>
+</li>
+<li>
+<p><strong>Complex Relationships</strong>: ARIMA models may struggle with data that has complex, non-linear relationships. They are fundamentally linear models and might not capture complex patterns present in some datasets, especially those influenced by numerous external factors.</p>
+</li>
+<li>
+<p><strong>Lack of External Factors</strong>: ARIMA models primarily focus on the time series data itself and do not incorporate external variables or factors. If the dataset is influenced by external factors (<strong>like economic indicators, global events, etc.</strong>), ARIMA might not be able to account for these influences.</p>
+</li>
+<li>
+<p><strong>Overfitting on Noisy Data</strong>: ARIMA can overfit on noisy data, leading to a model that performs well on training data but poorly on unseen data. This is particularly problematic if the noise in the data is random and does not contain information about future values.</p>
+</li>
+<li>
+<p><strong>Parameter Selection</strong>: Choosing the right parameters (p, d, q) for ARIMA models can be challenging. Incorrect parameter choices can lead to poor model performance.</p>
+</li>
+</ol>
+<p>In summary, ARIMA's limitations in handling non-stationary data, complex relationships, external factors, and its sensitivity to parameter selection and noisy data can contribute to its suboptimal performance on certain datasets.</p>
+<h2 id="prophet">Prophet</h2>
+<ul>
+<li>
+<p><strong>Combined_Raw.csv</strong>: This dataset contains the raw data without any preprocessing. The model's performance is moderate with an <strong>R^2</strong> of <code>0.72</code>. However, the error metrics like <strong>MAE</strong> and <strong>RMSE</strong> are relatively high, suggesting that the raw data might have outliers or noise affecting the model's predictions.</p>
+</li>
+<li>
+<p><strong>Combined_CPI_Adjusted.csv</strong>: Adjusting for CPI helps in normalizing the data related to inflation or other economic changes over time. The model shows a decent fit with an <strong>R^2</strong> of <code>0.66</code>, but the error metrics are still on the higher side.</p>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed.csv</strong>: Log transformation helps in stabilizing the variance and making the data more <em>'model-friendly'</em>. This dataset shows significant improvement in all metrics, especially in reducing the <strong>MAPE</strong> to <code>6.19%</code> and achieving an <strong>R^2</strong> of <code>0.73.</code></p>
+</li>
+<li>
+<p><strong>Combined_Log_Clean.csv</strong>: Further cleaning the log-transformed data results in slightly better performance, indicating that removing anomalies or irrelevant data points can enhance model accuracy.</p>
+</li>
+<li>
+<p><strong>Combined_Log_Clean_NoNeg.csv</strong>: This dataset yields the best performance across all metrics, with the lowest errors and the highest <strong>R^2</strong> of <code>0.77</code>. Removing negative values seems to have a substantial positive impact, suggesting that such values might have been outliers or noise.</p>
+</li>
+<li>
+<p><strong>Combined_Log_Transformed_Excl_Roil.csv</strong>: Excluding real oil data in the log-transformed dataset shows a decrease in model performance compared to when real oil data is included, indicating that real oil prices might be a significant predictor for the model.</p>
+</li>
+<li>
+<p><strong>Combined_Log_Excl_Roil_Clean.csv</strong> and Combined_Log_Excl_Roil_Clean_NoNeg.csv: These datasets, which exclude real oil data and involve cleaning, show lower performance compared to datasets where real oil data is included. This further emphasizes the importance of real oil prices in the prediction model.</p>
+</li>
+</ul>
+<h4 id="best-dataset_5">'Best' Dataset:</h4>
+<p>The <code>Combined_Log_Clean_NoNeg.csv</code> dataset stands out as the 'best' performer for the Prophet model. The combination of log transformation, data cleaning, and removal of negative values significantly enhances the model's predictive accuracy. The low <strong>MAPE</strong> of <code>5.71%</code> and the highest <strong>R^2</strong> of <code>0.77</code> suggest that the model's predictions are both accurate and reliable for this dataset.</p>
+<p>While the <code>Combined_Log_Clean_NoNeg.csv</code> dataset shows the best performance, it's essential to ensure the model's ability to generalize. This can be done by evaluating the model on a separate test set or using time-series cross-validation techniques.</p>
+<h2 id="xgboost-time-series">XGBoost (Time Series)</h2>
+<p>To be added.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../variables/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Variables">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Variables
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../web-interface/purpose/" class="md-footer__link md-footer__link--next" aria-label="Next: Purpose">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Purpose
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

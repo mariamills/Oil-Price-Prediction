@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../xgboost/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../polynomial-regression/">
+        <link rel="next" href="../xgboost/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Random Forest - The Oval Table - Oil Price Prediction</title>
+        <title>Cross Validation - The Oval Table - Oil Price Prediction</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#random-forest-model" class="md-skip">
+        <a href="#what-is-cross-validation" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Random Forest
+              Cross Validation
             
           </span>
         </div>
@@ -690,9 +690,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../cross-validation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Cross Validation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -701,6 +719,72 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cross-validation" class="md-nav__link">
+    What is Cross-Validation?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-cross-validation" class="md-nav__link">
+    Why Use Cross-Validation?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-folds-in-cross-validation" class="md-nav__link">
+    What are 'Folds' in Cross-Validation?
+  </a>
+  
+    <nav class="md-nav" aria-label="What are 'Folds' in Cross-Validation?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-5-folds" class="md-nav__link">
+    Why 5 Folds?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-cross-validation-achieve" class="md-nav__link">
+    What Does Cross-Validation Achieve?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -730,29 +814,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Random Forest
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../random-forest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -761,61 +825,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#simple-explanation" class="md-nav__link">
-    Simple Explanation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#formula" class="md-nav__link">
-    Formula
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#feature-importance" class="md-nav__link">
-    Feature Importance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1039,8 +1048,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1049,36 +1056,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#simple-explanation" class="md-nav__link">
-    Simple Explanation
+  <a href="#what-is-cross-validation" class="md-nav__link">
+    What is Cross-Validation?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#formula" class="md-nav__link">
-    Formula
+  <a href="#why-use-cross-validation" class="md-nav__link">
+    Why Use Cross-Validation?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
+  <a href="#what-are-folds-in-cross-validation" class="md-nav__link">
+    What are 'Folds' in Cross-Validation?
+  </a>
+  
+    <nav class="md-nav" aria-label="What are 'Folds' in Cross-Validation?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-5-folds" class="md-nav__link">
+    Why 5 Folds?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-cross-validation-achieve" class="md-nav__link">
+    What Does Cross-Validation Achieve?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#feature-importance" class="md-nav__link">
-    Feature Importance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -1098,37 +1118,30 @@
                   
 
 
-<h1 id="random-forest-model">Random Forest Model</h1>
-<p><strong>Random Forest</strong> is an ensemble learning method that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes <em>(classification)</em> or mean prediction <em>(regression)</em> of the individual trees.</p>
-<h4 id="simple-explanation">Simple Explanation</h4>
-<p>Random Forest is like a team of decision-makers (trees) where each member (tree) gives a vote (prediction), and the final decision is made based on the majority vote. It's a powerful and versatile machine learning method that can be used for both classification and regression tasks.</p>
-<p>The "forest" is made up of many "trees" (hence the name), but unlike real trees, these decision trees are simple models that make predictions based on the features of the data. The "random" part comes from the fact that each tree in the forest is built from a random sample of the data, and at each node in the tree, a random subset of features is considered for splitting. This randomness helps make the model more robust to noise in the data and less likely to overfit, meaning it can generalize better to new, unseen data.</p>
-<p>In simpler terms, you can think of Random Forest as a way of asking many different experts for their opinion and then taking the average of all those opinions to make a final decision. Each expert has a different piece of the overall picture, and by combining their knowledge, you get a well-rounded answer.</p>
-<h4 id="formula">Formula</h4>
-<p>The prediction of a Random Forest model for a <strong>regression</strong> problem can be expressed as the average of the outputs of all the individual trees in the forest. <br>
-For a <strong>classification</strong> problem, it's the majority vote (mode) among the predictions from all trees.</p>
-<p>For a regression Random Forest, the predicted value y-hat for a given instance x is calculated as:</p>
-<pre><code class="language-math">y-hat = (1/N) * Σ(tree_k.predict(x)) for k = 1 to N
-</code></pre>
-<p>where: </p>
+  <h1>Cross Validation</h1>
+
+<h2 id="what-is-cross-validation">What is Cross-Validation?</h2>
+<p><strong>Cross-Validation</strong> is a statistical method used to estimate the skill of a machine learning model. It is primarily used to assess how well a model will perform on an independent dataset, i.e., <em>data it hasn't seen before</em>. This is crucial for understanding how well your model generalizes from the training data to unseen data.</p>
+<h2 id="why-use-cross-validation">Why Use Cross-Validation?</h2>
+<p>When you build a machine learning model, you typically divide your data into at least <strong>two sets</strong>: a <strong>training set</strong> and a <strong>test set</strong>.<br> 
+The model learns from the training set and is evaluated on the test set. However, this split can lead to variability in the model's performance depending on which data points end up in the training set and which in the test set. <strong>Cross-Validation</strong> helps to mitigate this by using multiple splits.</p>
+<h2 id="what-are-folds-in-cross-validation">What are 'Folds' in Cross-Validation?</h2>
+<p>In the context of <strong>Cross-Validation</strong>, the term <em>"fold"</em> refers to each separate iteration, or <em>"split"</em>, of the dataset.</p>
 <ul>
-<li><code>N</code> is the number of trees in the forest.</li>
-<li><code>tree_k.predict(x)</code> is the prediction for instance <code>x</code> from the <code>k-th</code> tree.</li>
+<li>When you perform 5-fold cross-validation, you divide your data into 5 parts (folds).</li>
+<li>In each iteration (fold), a different part of the data is held out as the test set, and the remaining parts are combined to form the training set.</li>
+<li>The model is trained on this training set and evaluated on the test set.</li>
+<li>This process is repeated 5 times (for 5-fold CV), each time with a different part being the test set.</li>
 </ul>
-<p>For a detailed explanation of the Random Forest algorithm and its parameters, you can visit the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank">Random Forest section in scikit-learn's documentation</a>.</p>
-<h4 id="parameters">Parameters</h4>
-<ul>
-<li><code>n_estimators</code>: The number of trees in the forest.</li>
-<li><code>max_depth</code>: The maximum depth of the trees.</li>
-<li><code>min_samples_leaf</code>: The minimum number of samples required to be at a leaf node.</li>
-<li><code>max_features</code>: The number of features to consider when looking for the best split.</li>
-</ul>
-<p>For a detailed explanation of the Random Forest algorithm and its parameters, you can visit the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank">Random Forest section in scikit-learn's documentation</a>.</p>
-<h4 id="feature-importance">Feature Importance</h4>
-<p>One of the most powerful aspects of Random Forest is its intrinsic ability to rank the importance of features based on how much they improve the purity of the node. This means that more important features will be selected more often when splitting nodes. You can access feature importance in scikit-learn with the <code>feature_importances_</code> attribute after fitting a Random Forest model.</p>
-<p>Random Forest can capture the importance of features with respect to the task being solved, which is a handy attribute for feature selection and understanding the model.</p>
-<h4 id="code">Code</h4>
-<p>To see how we implemented Random Forest in our project including cross-validation, check out the <a href="">Random Forest notebook</a>.</p>
+<h3 id="why-5-folds">Why 5 Folds?</h3>
+<p>Why did we use 5 folds in our project?<br></p>
+<p>The number of folds is a parameter that you can choose. Five is a common choice because it's a good balance between computational efficiency and reliability of the results. More folds typically mean a better estimate of model performance but require more computation. Fewer folds are quicker but might not estimate performance as accurately.</p>
+<h2 id="what-does-cross-validation-achieve">What Does Cross-Validation Achieve?</h2>
+<p>By the end of the cross-validation process, you have an array of performance scores (e.g., accuracy, R^2, MAE, etc.) - one score for each fold. You can then look at the average of these scores to get a more robust understanding of how well your model performs. This average is less sensitive to the particularities of a single train-test split and is generally a better indicator of model performance on unseen data.</p>
+<h2 id="summary">Summary</h2>
+<p>In summary, <strong>Cross-Validation</strong> is a method to robustly assess the performance of your machine learning model. By using multiple train-test splits (folds), it gives you a more reliable measure of your model's ability to generalize to new data.</p>
+<p>We only performed 5-fold cross-validation in our project, but you can also use other numbers of folds, such as 10-fold cross-validation. </p>
+<p><br> If you'd like to see our code for cross-validation, go to the model's section of this documentation (located to the left) and click on the link to the model you're interested in. You'll find the code for cross-validation in the `Code' section of the model's documentation, it should take you to that model's notebook on GitHub, scroll down to the bottom of the notebook to find the code for cross-validation.</p>
 
 
 
@@ -1156,7 +1169,7 @@ For a <strong>classification</strong> problem, it's the majority vote (mode) amo
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../xgboost/" class="md-footer__link md-footer__link--prev" aria-label="Previous: XGBoost">
+          <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Models Overview">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1166,20 +1179,20 @@ For a <strong>classification</strong> problem, it's the majority vote (mode) amo
                 Previous
               </span>
               <div class="md-ellipsis">
-                XGBoost
+                Models Overview
               </div>
             </div>
           </a>
         
         
           
-          <a href="../polynomial-regression/" class="md-footer__link md-footer__link--next" aria-label="Next: Polynomial Regression">
+          <a href="../xgboost/" class="md-footer__link md-footer__link--next" aria-label="Next: XGBoost">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Polynomial Regression
+                XGBoost
               </div>
             </div>
             <div class="md-footer__button md-icon">

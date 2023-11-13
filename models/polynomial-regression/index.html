@@ -458,6 +458,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/model-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -672,6 +692,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../cross-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../xgboost/" class="md-nav__link">
         
   
@@ -781,6 +821,13 @@
         <li class="md-nav__item">
   <a href="#feature-importance" class="md-nav__link">
     Feature Importance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
@@ -1029,6 +1076,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1054,15 +1108,20 @@
 </code></pre>
 <p>Here, <code>y</code> represents the dependent variable we're trying to predict, <code>x₁</code> is the independent variable, <code>β₀</code> is the y-intercept, <code>β₁</code> to <code>βₙ</code> are the coefficients for each degree of the independent variable, and <code>ε</code> is the error term.</p>
 <h4 id="parameters">Parameters</h4>
-<p>Some key parameters in Polynomial Regression include:</p>
+<p>For our project we only used one parameter, <code>degree</code>, which is the degree of the polynomial. This determines the curvature of the fit.</p>
 <ul>
 <li>The degree of the polynomial (<code>n</code>), which determines the curvature of the fit.</li>
+</ul>
+<p>Another key parameter (which we did not use for simplicity) is:</p>
+<ul>
 <li>The coefficients (<code>β₁</code> to <code>βₙ</code>), which are adjusted during the training process to fit the curve to the data.</li>
 </ul>
 <p>Unlike some other models, Polynomial Regression does not have an intrinsic feature importance metric. However, the size of the coefficients can give some indication of the importance of each term.</p>
 <h4 id="feature-importance">Feature Importance</h4>
 <p>Polynomial Regression doesn't directly provide feature importance. However, the magnitude of the coefficients can imply how much influence each degree of the independent variable has on the dependent variable.</p>
 <p>For a detailed understanding of Polynomial Regression, you can refer to the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html" target="_blank">documentation</a>.</p>
+<h4 id="code">Code</h4>
+<p>To see how we implemented Polynomial Regression in our project including cross-validation, check out the <a href="">Polynomial Regression notebook</a>.</p>
 
 
 

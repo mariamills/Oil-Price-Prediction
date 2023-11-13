@@ -458,6 +458,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/model-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -672,6 +692,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../cross-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../xgboost/" class="md-nav__link">
         
   
@@ -841,6 +881,13 @@
         <li class="md-nav__item">
   <a href="#feature-importance" class="md-nav__link">
     Feature Importance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
@@ -1037,6 +1084,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-notes" class="md-nav__link">
     Additional Notes
   </a>
@@ -1075,6 +1129,10 @@
 <li><code>e(t)</code> is the error term.</li>
 </ul>
 <h4 id="parameters">Parameters</h4>
+<p>Prophet focuses mainly on seasonal effects and trend changes, so it doesn't have many parameters.<br>
+And the parameters it does have are mostly for tuning the model's seasonality and trend components. <br></p>
+<p>For simplicity, we did not use any of these parameters in our project.<br>
+However, here is quick overview of the parameters:</p>
 <p>Prophet does not have traditional model parameters like <code>p</code>, <code>d</code>, <code>q</code> in ARIMA. Instead, it has several adjustable components:</p>
 <ul>
 <li><code>growth</code>: Can be 'linear' or 'logistic' to specify a capacity to which the forecast can grow.</li>
@@ -1083,6 +1141,8 @@
 </ul>
 <h4 id="feature-importance">Feature Importance</h4>
 <p>Prophet automatically detects and accounts for seasonality, thus there's no traditional feature importance. The model's interpretability comes from the decomposition of the forecast into trend, seasonality, and holiday components.</p>
+<h4 id="code">Code</h4>
+<p>To see how we implemented Prophet in our project including cross-validation, check out the <a href="">Prophet notebook</a>.</p>
 <h4 id="additional-notes">Additional Notes</h4>
 <ul>
 <li>Prophet is robust to missing data and shifts in the trend and typically handles outliers well.</li>
