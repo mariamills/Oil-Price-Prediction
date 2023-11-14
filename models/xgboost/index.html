@@ -458,26 +458,6 @@
 
               
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../data/model-performance/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Model Performance
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -692,6 +672,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../data/model-performance.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cross-validation/" class="md-nav__link">
         
   
@@ -786,22 +786,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#xgboost-for-time-series" class="md-nav__link">
-    XGBoost for Time Series
-  </a>
-  
-    <nav class="md-nav" aria-label="XGBoost for Time Series">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#code" class="md-nav__link">
     Code
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1090,22 +1077,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#xgboost-for-time-series" class="md-nav__link">
-    XGBoost for Time Series
-  </a>
-  
-    <nav class="md-nav" aria-label="XGBoost for Time Series">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#code" class="md-nav__link">
     Code
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1161,17 +1135,6 @@
 <p>XGBoost provides a way to examine the importance of each feature in the final decision. This is helpful for understanding the model and for feature selection.</p>
 <p><code>Gain</code> is the improvement in accuracy brought by a feature to the branches it is on. The higher the gain, the more important the feature is. <br>
 Refer to the <a href="https://xgboost.readthedocs.io/en/stable/R-package/discoverYourData.html#feature-importance" target="_blank">XGBoost documentation</a> for more details on feature importance.</p>
-<h3 id="xgboost-for-time-series">XGBoost for Time Series</h3>
-<p>XGBoost can be used for time series prediction (<em>as we did in Cycle 2</em>) by <strong>transforming the time series forecasting problem into a supervised learning problem</strong>. This involves creating features from the time series data like lag features, rolling window statistics, and others to capture time-dependent patterns.
-For this, feature engineering is crucial, where past observations are used as input features to predict future values.</p>
-<p>To apply XGBoost to time series, it's important to ensure that the model is trained on past data to predict future data, respecting the time series nature of the problem.</p>
-<p>Key considerations when using XGBoost for time series:</p>
-<ul>
-<li><strong>Lag features</strong>: Include previous time steps as features to provide the model with information about the trend and seasonality.</li>
-<li><strong>Rolling window statistics</strong>: Use statistics like mean or variance on a window of past observations as features to capture the local temporal dynamics.</li>
-<li><strong>Date-time features</strong>: Extract information from the timestamp, like the day of the week or the hour of the day, which can affect the time series patterns.</li>
-</ul>
-<p>To learn more about using XGBoost for time series forecasting, check out this <a href="https://xgboost.readthedocs.io/en/latest/tutorials/forecast.html" target="_blank">comprehensive guide</a>.</p>
 <h4 id="code">Code</h4>
 <p>To see how we implemented XGBoost in our project including cross-validation, check out the <a href="">XGBoost(Regression) notebook</a> or the <a href="">XGBoost(Time Series) notebook</a>.</p>
 
