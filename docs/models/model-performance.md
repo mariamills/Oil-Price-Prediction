@@ -267,8 +267,3 @@ In summary, ARIMA's limitations in handling non-stationary data, complex relatio
 The `Combined_Log_Clean_NoNeg.csv` dataset stands out as the 'best' performer for the Prophet model. The combination of log transformation, data cleaning, and removal of negative values significantly enhances the model's predictive accuracy. The low __MAPE__ of `5.71%` and the highest __R^2__ of `0.77` suggest that the model's predictions are both accurate and reliable for this dataset.
 
 While the `Combined_Log_Clean_NoNeg.csv` dataset shows the best performance, it's essential to ensure the model's ability to generalize. This can be done by evaluating the model on a separate test set or using time-series cross-validation techniques.
-
-
-## XGBoost (Time Series)
-
-To be added.

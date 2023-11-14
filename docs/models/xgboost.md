@@ -45,21 +45,6 @@ XGBoost provides a way to examine the importance of each feature in the final de
 `Gain` is the improvement in accuracy brought by a feature to the branches it is on. The higher the gain, the more important the feature is. <br>
 Refer to the [XGBoost documentation](https://xgboost.readthedocs.io/en/stable/R-package/discoverYourData.html#feature-importance){target=_blank} for more details on feature importance.
 
-### XGBoost for Time Series
-XGBoost can be used for time series prediction (*as we did in Cycle 2*) by **transforming the time series forecasting problem into a supervised learning problem**. This involves creating features from the time series data like lag features, rolling window statistics, and others to capture time-dependent patterns.
-For this, feature engineering is crucial, where past observations are used as input features to predict future values.
-
-To apply XGBoost to time series, it's important to ensure that the model is trained on past data to predict future data, respecting the time series nature of the problem.
-
-Key considerations when using XGBoost for time series:
-
-- **Lag features**: Include previous time steps as features to provide the model with information about the trend and seasonality.
-- **Rolling window statistics**: Use statistics like mean or variance on a window of past observations as features to capture the local temporal dynamics.
-- **Date-time features**: Extract information from the timestamp, like the day of the week or the hour of the day, which can affect the time series patterns.
-
-To learn more about using XGBoost for time series forecasting, check out this [comprehensive guide](https://xgboost.readthedocs.io/en/latest/tutorials/forecast.html){target=_blank}.
-
-
 #### Code
 
 [//]: # (TODO: Add link to notebook)

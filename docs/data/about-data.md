@@ -161,6 +161,13 @@ So, in this case, using `1e-6` is perfectly fine because it's so small compared 
   - Dates: 1992-03 - 2019-02
   - Source: [See here](https://github.com/Hutto04/The-Oval-Table/blob/maria-mills/Maria-Mills/Data/Creation/CSV/Combined_Log_Excl_Roil_Clean_NoNeg.csv){:target="_blank"}
 
+#### Excel with each model's metrics per dataset
+
+![Excel Sheet](/assets/images/1.png)
+![Excel Sheet](/assets/images/2.png)
+or [click here](/assets/Model_Metrics.xlsx) to download the excel sheet.) 
+
+
 ### Data Usage
 
 It's essential to understand that while our datasets are extensive and informative, they are primarily tailored for educational purposes within the context of our current project. We advise users to approach the data with a discerning lens, acknowledging its scope and potential limitations.
