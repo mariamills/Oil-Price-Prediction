@@ -8,7 +8,7 @@ Our user-friendly web interface provides a hassle-free experience to run predict
 
 1. **Navigate to the Web Interface**: [Here](https://oil-price-prediction.onrender.com/){:target="_blank"}
 
-2. **Click Predict**: On the homepage you will see a button labeled `Predict`. <br> ![Predict Button](/assets/images/predict-button.png) <br>
+2. **Click Predict**: On the homepage you will see a button labeled `Predict`. <br> ![Predict Button](../assets/images/predict-button.png) <br>
 This will take you to the prediction page, where you can select a model, either Time Series(for forecasting) or Regression(for regression analysis - *these models are not capable of forecasting*).
 
 3. **Choose a Model**: Browse through the available models via the drop-down selection menu and select the one you'd like to use.

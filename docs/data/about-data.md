@@ -163,9 +163,10 @@ So, in this case, using `1e-6` is perfectly fine because it's so small compared 
 
 #### Excel with each model's metrics per dataset
 
-![Excel Sheet](/assets/images/1.png)
-![Excel Sheet](/assets/images/2.png)
-or [click here](/assets/Model_Metrics.xlsx) to download the excel sheet.) 
+![Excel Sheet](../assets/images/1.png)
+![Excel Sheet](../assets/images/2.png)
+or [click here](https://docs.google.com/spreadsheets/d/1jQsuw5jWw0nk2vR7jbw8MGGGpof9J82T/edit?usp=sharing&ouid=100194304972418194729&rtpof=true&sd=true){:target="_blank"} to **view** the excel sheet via Google Sheets.
+<br>Alternatively, you can **download** the excel sheet [here](../assets/Model_Metrics.xlsx).
 
 
 ### Data Usage
