@@ -35,5 +35,4 @@ For a detailed understanding of Polynomial Regression, you can refer to the [doc
 
 #### Code
 
-[//]: # (TODO: Add link to notebook)
-To see how we implemented Polynomial Regression in our project including cross-validation, check out the [Polynomial Regression notebook]().
+To see how we implemented Polynomial Regression in our project including cross-validation, check out the [Polynomial Regression notebook](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Models/Polynomial-Regression/Cycle-2/Combined-Log-Clean-NoNeg/polynomial-regression.ipynb){target=_blank}.

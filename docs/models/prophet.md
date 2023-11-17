@@ -40,8 +40,7 @@ Prophet automatically detects and accounts for seasonality, thus there's no trad
 
 #### Code
 
-[//]: # (TODO: Add link to notebook)
-To see how we implemented Prophet in our project including cross-validation, check out the [Prophet notebook]().
+To see how we implemented Prophet in our project including cross-validation, check out the [Prophet notebook](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Models/Prophet/Cycle-2/Combined-Log-Transformed-Excl-Roil/prophet-1.ipynb){target=_blank}.
 
 #### Additional Notes
 

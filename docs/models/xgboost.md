@@ -47,5 +47,4 @@ Refer to the [XGBoost documentation](https://xgboost.readthedocs.io/en/stable/R-
 
 #### Code
 
-[//]: # (TODO: Add link to notebook)
-To see how we implemented XGBoost in our project including cross-validation, check out the [XGBoost(Regression) notebook]() or the [XGBoost(Time Series) notebook]().
+To see how we implemented XGBoost in our project including cross-validation, check out the [XGBoost(Regression) notebook](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Models/XGBoost/Cycle-2/Combined-Log-Clean-NoNeg/xgboost-1.ipynb){target=_blank}.

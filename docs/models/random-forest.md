@@ -42,5 +42,4 @@ Random Forest can capture the importance of features with respect to the task be
 
 #### Code
 
-[//]: # (TODO: Add link to notebook)
-To see how we implemented Random Forest in our project including cross-validation, check out the [Random Forest notebook]().
+To see how we implemented Random Forest https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Models/ARIMA/Cycle-2/Combined-Log-Transformed/arima-1.ipynbin our project including cross-validation, check out the [Random Forest notebook](https://github.com/Hutto04/The-Oval-Table/blob/main/Maria-Mills/Models/ARIMA/Cycle-2/Combined-Log-Transformed/arima-1.ipynb){target=_blank}.

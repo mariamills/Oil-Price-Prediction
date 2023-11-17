@@ -24,6 +24,5 @@
    The dataset spans from January 1986 to June 2023 for macroeconomic indicators and until July 2023 for oil prices. However, please note that this data **isn't regularly updated**, as it primarily serves the educational objectives of our school project.
 
 7. ### **Can I contribute or provide feedback?**
-[//]: # (TODO: Add link to GitHub repo)
-    Absolutely! Feedback is invaluable. We welcome contributions via pull requests on our [GitHub repository](). Additionally, for feedback, queries, or issues, you can use the "Issues" section on GitHub.
+    Absolutely! Feedback is invaluable. We welcome contributions via pull requests on our [GitHub repository](https://github.com/Hutto04/The-Oval-Table/tree/main){target=_blank}. Additionally, for feedback, queries, or issues, you can use the "Issues" section on GitHub.
 

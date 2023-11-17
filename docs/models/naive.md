@@ -26,5 +26,4 @@ The Naive Forecast is often used as a **benchmark** for more complex forecasting
 
 #### Code
 
-[//]: # (TODO: Add link to notebook)
-To see how we implemented Naive Forecast in our project __NOT__ including cross-validation, check out the [Naive Forecast notebook]().
+To see how we implemented Naive Forecast in our project __NOT__ including cross-validation, check out the [Naive Forecast notebook](https://github.com/Hutto04/The-Oval-Table/tree/main/Maria-Mills/Models/Baseline/Cycle-2){target=_blank}.
